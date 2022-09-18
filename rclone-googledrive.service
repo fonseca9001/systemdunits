@@ -1,0 +1,14 @@
+[Unit]
+Description=GoogleDrive
+AssertPathIsDirectory=/mnt/data/googledrive
+After=network.target mnt-data.mount
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount --vfs-cache-mode full googledrive: /mnt/data/googledrive
+ExecStop=/bin/fusermount -u /mnt/data/googledrive
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
