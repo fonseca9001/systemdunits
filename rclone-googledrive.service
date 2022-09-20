@@ -1,6 +1,5 @@
 [Unit]
 Description=GoogleDrive
-AssertPathIsDirectory=/mnt/data/googledrive
 After=network.target mnt-data.mount
 
 [Service]
