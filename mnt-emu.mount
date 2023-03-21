@@ -1,0 +1,11 @@
+[Unit]
+Description=Samba mount for emu
+After=network.target
+
+[Mount]
+What=//192.168.1.100/emu
+Where=/mnt/emu
+Options=credentials=/etc/samba/credentials,rw
+
+[Install]
+WantedBy=multi-user.target

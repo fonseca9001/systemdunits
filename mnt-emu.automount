@@ -1,0 +1,9 @@
+[Unit]
+Description=Samba automount for emu
+After=network.target
+
+[Automount]
+Where=/mnt/emu
+
+[Install]
+WantedBy=multi-user.target
