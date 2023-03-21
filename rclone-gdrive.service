@@ -8,13 +8,13 @@ Type=simple
 
 ExecStart= \
 /usr/bin/rclone mount \
---vfs-cache-mode full \
+--vfs-cache-mode writes  \
 --no-modtime \
 --vfs-fast-fingerprint\
-googledrive: /home/fonseca/googledrive
+googledrive: /mnt/googledrive
 
 # Perform lazy unmount
-ExecStop=/usr/bin/fusermount -zu /home/fonseca/googledrive
+ExecStop=/usr/bin/fusermount -zu /mnt/googledrive
 # Restart the service whenever rclone exists with non-zero exit code
 Restart=on-failure
 RestartSec=45
