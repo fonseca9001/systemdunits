@@ -5,7 +5,7 @@ After=network.target
 [Mount]
 What=//192.168.1.100/emu
 Where=/mnt/emu
-Options=credentials=/etc/samba/credentials,rw
+Options=credentials=/etc/samba/credentials,rw,uid=1000,gid=1000,file_mode=0660,dir_mode=0770
 
 [Install]
 WantedBy=multi-user.target
