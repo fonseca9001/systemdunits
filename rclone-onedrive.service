@@ -13,10 +13,10 @@ ExecStart= \
 --vfs-cache-mode writes \
 --no-modtime \
 --vfs-fast-fingerprint\
-onedrive: /mnt/onedrive
+onedrive: /mnt/data/onedrive
 
 # Perform lazy unmount
-ExecStop=/usr/bin/fusermount -zu /mnt/onedrive
+ExecStop=/usr/bin/fusermount -zu /mnt/data/onedrive
 # Restart the service whenever rclone exists with non-zero exit code
 Restart=on-failure
 RestartSec=45

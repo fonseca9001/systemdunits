@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer for rclone-onedrive
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+Unit=rclone-onedrive.service
+
+[Install]
+WantedBy=timers.target

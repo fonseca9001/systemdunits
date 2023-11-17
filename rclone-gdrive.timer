@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer for rclone-googledrive
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+Unit=rclone-gdrive.service
+
+[Install]
+WantedBy=timers.target

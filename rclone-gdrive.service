@@ -1,24 +1,14 @@
 [Unit]
 Description=rclone-googledrive
-# Make sure we have network enabled
 After=network-online.target
 
 [Service]
 Type=notify
 
-ExecStart= \
-/usr/bin/rclone mount \
---vfs-cache-mode writes  \
---no-modtime \
---vfs-fast-fingerprint\
-googledrive: /mnt/googledrive
-
-# Perform lazy unmount
-ExecStop=/usr/bin/fusermount -zu /mnt/googledrive
-# Restart the service whenever rclone exists with non-zero exit code
+ExecStart=/usr/bin/rclone mount --vfs-cache-mode writes --no-modtime --vfs-fast-fingerprint googledrive: /mnt/data/googledrive/
+ExecStop=/usr/bin/fusermount -zu /mnt/data/googledrive
 Restart=on-failure
 RestartSec=45
 
 [Install]
-# Autostart after reboot
 WantedBy=default.target
